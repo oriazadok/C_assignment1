@@ -8,7 +8,6 @@ int numberLength(int n);
 
 int isArmstrong(int num) {
     int n = num;
-    
     int len = numberLength(num);
     int sum = 0;
     while (n > 0) {
@@ -26,19 +25,25 @@ int isArmstrong(int num) {
 int isPalindrome(int num) {
     
     int len = numberLength(num);
-    for(int i=0; i<(len / 2); i++) {
-        len = numberLength(num);
-        int left = num / (int)pow(10, (len - 1 - i));
-        int right = num % (int)(10 * pow(10, i));
-        if(left != right) {
-            return FALSE;
-        }
+    int n = num;
+    int sum = 0;
+    for(int i=0; i<len; i++) {
+        sum *= 10;
+        sum += n % 10;
+        n /= 10;
     }
-    return TRUE;
+
+    if(num == sum) {
+        return TRUE;
+    }
+    return FALSE;
 }
 
 int numberLength(int n) {
 
+    if (n == 0) {
+        return 1;
+    }
     int counter = 0;
 
     while(n > 0) {

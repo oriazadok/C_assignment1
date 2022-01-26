@@ -4,6 +4,7 @@
 
 int numberLength(int n);
 int isArmstrong_2(int num, int len);
+int isPalindrome_2(int n,int sum);
 
 
 int isArmstrong(int num) {
@@ -24,19 +25,25 @@ int isArmstrong_2(int num, int len) {
 }
 
 int isPalindrome(int num) {
-    int len = numberLength(num);
-    if(len == 1) {
+    int n = num;
+    if(num / 10 == 0){
         return TRUE;
     }
-    int left = num / (int)pow(10, (len - 1));
-    int right = num % 10;
-
-    if (left == right) {
-        num %= left * (int)pow(10, (len - 1));
-        num /= 10;
-        return isPalindrome(num);
+    int sum = isPalindrome_2(n, 0);
+    if (sum == num){
+        return TRUE;
     }
-    return FALSE;;
+    return FALSE;
+}
+
+int isPalindrome_2(int n,int sum){
+    if(n <= 0) {
+        return sum;
+    }
+    sum *= 10;
+    sum += temp % 10;
+    n /= 10;
+    return isPalindrome_2(n, sum);
 }
 
 int numberLength(int n) {
