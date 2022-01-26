@@ -10,7 +10,6 @@ int isArmstrong(int num) {
     int n = num;
     
     int len = numberLength(num);
-    // printf("len = %d\n", len);
     int sum = 0;
     while (n > 0) {
         sum += pow(n % 10, len);
@@ -31,7 +30,6 @@ int isPalindrome(int num) {
         len = numberLength(num);
         int left = num / (int)pow(10, (len - 1 - i));
         int right = num % (int)(10 * pow(10, i));
-        // printf("left = %d, right = %d", left, right);
         if(left != right) {
             return FALSE;
         }
