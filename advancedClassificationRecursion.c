@@ -41,7 +41,7 @@ int isPalindrome_2(int n,int sum){
         return sum;
     }
     sum *= 10;
-    sum += temp % 10;
+    sum += n % 10;
     n /= 10;
     return isPalindrome_2(n, sum);
 }
